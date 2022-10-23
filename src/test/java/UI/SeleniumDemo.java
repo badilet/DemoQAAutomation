@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.sql.Driver;
 import java.time.Duration;
 
 public class SeleniumDemo {
@@ -25,6 +26,8 @@ public class SeleniumDemo {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://demoqa.com/text-box");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
 
 //        driver.get("https://www.google.com/");
 //        driver.findElement(By.name("q")).sendKeys("Apple");
@@ -49,6 +52,7 @@ public class SeleniumDemo {
         Assertions.assertEquals(currentAddress, testCurrentAddress.getText().substring(17));
         WebElement testPermanentAddress = driver.findElement(By.xpath("//p[@id='permanentAddress']"));
         Assertions.assertEquals(permanentAddress, testPermanentAddress.getText().substring(20));
+        driver.quit();
     }
 
     @Test
@@ -59,6 +63,8 @@ public class SeleniumDemo {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://demoqa.com/text-box");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
 
         WebElement fullNameInputField = driver.findElement(By.xpath("//input[@placeholder='Full Name']"));
         fullNameInputField.sendKeys("John");
@@ -74,6 +80,7 @@ public class SeleniumDemo {
 
         WebElement submitButton = driver.findElement(By.xpath("//button[@id='submit']"));
         submitButton.click();
+        driver.quit();
     }
 
     @Test
@@ -83,6 +90,8 @@ public class SeleniumDemo {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://demoqa.com/automation-practice-form");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,250)", "");
 
         WebElement firstNameInput = driver.findElement(By.xpath("//input[@id='firstName']"));
         firstNameInput.sendKeys("Akdil");
@@ -136,5 +145,7 @@ public class SeleniumDemo {
 
         WebElement submitButton = driver.findElement(By.xpath("//button[@id='submit']"));
         submitButton.sendKeys(Keys.ENTER);
+
+        driver.quit();
     }
 }

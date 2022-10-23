@@ -49,6 +49,8 @@ public class SeleniumDemo {
         Assertions.assertEquals(currentAddress, testCurrentAddress.getText().substring(17));
         WebElement testPermanentAddress = driver.findElement(By.xpath("//p[@id='permanentAddress']"));
         Assertions.assertEquals(permanentAddress, testPermanentAddress.getText().substring(20));
+
+        driver.quit();
     }
 
     @Test
@@ -74,6 +76,8 @@ public class SeleniumDemo {
 
         WebElement submitButton = driver.findElement(By.xpath("//button[@id='submit']"));
         submitButton.click();
+
+        driver.quit();
     }
 
     @Test
@@ -136,5 +140,6 @@ public class SeleniumDemo {
 
         WebElement submitButton = driver.findElement(By.xpath("//button[@id='submit']"));
         submitButton.sendKeys(Keys.ENTER);
+        driver.quit();
     }
 }

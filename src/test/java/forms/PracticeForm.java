@@ -4,6 +4,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
 import java.awt.*;
 import java.time.Duration;
 
@@ -32,10 +34,14 @@ public class PracticeForm {
         WebElement mobileNumberInput = driver.findElement(By.xpath("//input[@id='userNumber']"));
         mobileNumberInput.sendKeys("0555999000");
 
-//        WebElement dobInput = driver.findElement(By.xpath("//input[@id='dateOfBirthInput']"));
-//        dobInput.sendKeys(Keys.BACK_SPACE);
-//        dobInput.sendKeys(Keys.BACK_SPACE);
-//        dobInput.sendKeys("00");
+        WebElement dobInput = driver.findElement(By.xpath("//input[@id='dateOfBirthInput']"));
+        dobInput.click();
+        Select year = new Select(driver.findElement(By.xpath("//select[@class='react-datepicker__year-select']")));
+        year.selectByVisibleText("1995");
+        Select month = new Select(driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']")));
+        month.selectByVisibleText("May");
+        WebElement date = driver.findElement(By.xpath("//div[@class='react-datepicker__day react-datepicker__day--026']"));
+        date.click();
 
         WebElement subjectInput = driver.findElement(By.xpath("//input[@id='subjectsInput']"));
         subjectInput.sendKeys("ma");
